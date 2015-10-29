@@ -1,0 +1,21 @@
+{
+  "name": "{{ name }}",
+  "dependencies": {
+    "angular": "1.*"
+  },
+  "devDependencies": {
+    "gulp": "*",
+    "gulp-eslint": "*",
+    "gulp-mocha": "*",
+    "expect.js": "*",
+    "del": "*",
+    "webpack-stream": "*",
+    "freddie": "*"
+  },
+  "scripts": {
+    "lint": "gulp lint",
+    "test": "gulp test",
+    "build": "gulp build",
+    "serve": "freddie --root dist"
+  }
+}
