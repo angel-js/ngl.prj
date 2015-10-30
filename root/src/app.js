@@ -3,5 +3,5 @@
 var ng = require('angular');
 
 ng.module('app', [
-  require('components/{{ name }}/{{ name }}')
+  require('./components/{{ name }}/{{ name }}.module')
 ]);
