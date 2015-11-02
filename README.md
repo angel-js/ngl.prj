@@ -20,7 +20,7 @@ Go to the parent directory where you want to create your new project and
 initialize it
 
     cd ~/dev
-    scaffold ng.prj myAngularApp 
+    scaffold ng.prj myAngularApp
     cd myAngularApp
     npm install
 
