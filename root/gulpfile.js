@@ -1,10 +1,11 @@
 'use strict';
 
-var gulp    = require('gulp'),
-    eslint  = require('gulp-eslint'),
-    mocha   = require('gulp-mocha'),
-    del     = require('del'),
-    webpack = require('webpack-stream');
+var gulp          = require('gulp'),
+    eslint        = require('gulp-eslint'),
+    mocha         = require('gulp-mocha'),
+    del           = require('del'),
+    webpack       = require('webpack-stream'),
+    templateCache = require("gulp-angular-templatecache");
 
 gulp.task('lint', function () {
   var src = [
@@ -32,15 +33,22 @@ gulp.task('index', ['clean'], function () {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('webpack', ['test', 'clean'], function () {
-  var webpackConfig = {
-    output: { filename: '{{ name }}.js' },
-    devtool: 'source-map'
-  };
-
-  return gulp.src('src/app.js')
-    .pipe(webpack(webpackConfig))
+gulp.task('templates', ['clean'], function () {
+  return gulp.src('src/components/**/*.html')
+    .pipe(templateCache('templates.js', {
+      module: 'templates',
+      standalone: true
+    }))
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('build', ['index', 'webpack']);
+gulp.task('webpack', ['test', 'clean'], function () {
+  return gulp.src('src/app.js')
+    .pipe(webpack({
+      output: { filename: '{{ name }}.js' },
+      devtool: 'source-map'
+    }))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('build', ['index', 'templates', 'webpack']);

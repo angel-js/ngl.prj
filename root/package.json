@@ -10,6 +10,7 @@
     "expect.js": "*",
     "del": "*",
     "webpack-stream": "*",
+    "gulp-angular-templatecache": "*",
     "freddie": "*"
   },
   "scripts": {

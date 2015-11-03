@@ -6,7 +6,7 @@ module.exports = function () {
   };
 
   return {
-    template: '<h1 ng-bind="name"></h1>',
+    templateUrl: '{{ name }}/{{ name }}.html',
     link: link
   };
 };
