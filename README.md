@@ -8,7 +8,7 @@ Usage
 
 Install `scaffold`
 
-    npm -g scaffold
+    npm -g pfraces/scaffold
 
 Clone this repo in `~/.scaffold` directory
 
