@@ -1,11 +1,11 @@
 'use strict';
 
-var gulp          = require('gulp'),
-    eslint        = require('gulp-eslint'),
-    mocha         = require('gulp-mocha'),
-    del           = require('del'),
-    webpack       = require('webpack-stream'),
-    templateCache = require("gulp-angular-templatecache");
+var gulp = require('gulp');
+var eslint = require('gulp-eslint');
+var mocha = require('gulp-mocha');
+var del = require('del');
+var webpack = require('webpack-stream');
+var templateCache = require("gulp-angular-templatecache");
 
 gulp.task('lint', function () {
   var src = [
