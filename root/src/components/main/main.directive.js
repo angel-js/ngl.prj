@@ -6,7 +6,7 @@ module.exports = function () {
   };
 
   return {
-    templateUrl: '{{ name }}/{{ name }}.html',
+    templateUrl: 'main/main.html',
     link: link
   };
 };
