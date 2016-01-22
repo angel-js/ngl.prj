@@ -45,7 +45,7 @@ gulp.task('templates', ['clean'], function () {
 gulp.task('webpack', ['test', 'clean'], function () {
   return gulp.src('src/app.js')
     .pipe(webpack({
-      output: { filename: '{{ name }}.js' },
+      output: { filename: 'main.js' },
       devtool: 'source-map'
     }))
     .pipe(gulp.dest('dist'));

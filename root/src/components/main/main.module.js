@@ -2,6 +2,11 @@
 
 var ng = require('angular');
 
-module.exports = ng.module('main', [])
+var main = ng.module('main', [
+  require('../router/router.module'),
+  require('../home/home.module')
+]);
+
+module.exports = main
   .directive('appMain', require('./main.directive'))
   .name;

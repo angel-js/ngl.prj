@@ -1,7 +1,9 @@
 {
   "name": "{{ name }}",
   "dependencies": {
-    "angular": "1.*"
+    "angular": "1.*",
+    "angular-ui-router": "0.2.*",
+    "lodash": "*"
   },
   "devDependencies": {
     "gulp": "*",
@@ -17,6 +19,6 @@
     "lint": "gulp lint",
     "test": "gulp test",
     "build": "gulp build",
-    "serve": "freddie --root dist"
+    "serve": "freddie"
   }
 }
