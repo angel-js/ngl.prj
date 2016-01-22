@@ -3,7 +3,8 @@
 var ng = require('angular');
 
 var router = ng.module('router', [
-  require('angular-ui-router')
+  require('angular-ui-router'),
+  require('../home/home.module')
 ]);
 
 module.exports = router

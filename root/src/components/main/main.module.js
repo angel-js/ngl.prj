@@ -3,8 +3,7 @@
 var ng = require('angular');
 
 var main = ng.module('main', [
-  require('../router/router.module'),
-  require('../home/home.module')
+  require('../router/router.module')
 ]);
 
 module.exports = main
