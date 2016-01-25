@@ -4,8 +4,15 @@ var gulp = require('gulp');
 var eslint = require('gulp-eslint');
 var mocha = require('gulp-mocha');
 var del = require('del');
-var webpack = require('webpack-stream');
 var templateCache = require("gulp-angular-templatecache");
+var webpack = require('webpack-stream');
+var sourcemaps = require('gulp-sourcemaps');
+
+var postcss = require('gulp-postcss')([
+  require('postcss-import')({ path: ['node_modules'] }),
+  require('postcss-nested'),
+  require('postcss-extend')
+]);
 
 gulp.task('lint', function () {
   var src = [
@@ -33,6 +40,11 @@ gulp.task('index', ['clean'], function () {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('resources', ['clean'], function () {
+  return gulp.src('resources/**')
+    .pipe(gulp.dest('dist'));
+});
+
 gulp.task('templates', ['clean'], function () {
   return gulp.src('src/components/**/*.html')
     .pipe(templateCache('templates.js', {
@@ -42,7 +54,15 @@ gulp.task('templates', ['clean'], function () {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('webpack', ['test', 'clean'], function () {
+gulp.task('styles', ['clean'], function () {
+  return gulp.src('src/styles.css')
+    .pipe(sourcemaps.init())
+    .pipe(postcss)
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('scripts', ['test', 'clean'], function () {
   return gulp.src('src/app.js')
     .pipe(webpack({
       output: { filename: 'main.js' },
@@ -51,4 +71,4 @@ gulp.task('webpack', ['test', 'clean'], function () {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('build', ['index', 'templates', 'webpack']);
+gulp.task('build', ['index', 'templates', 'styles', 'scripts']);

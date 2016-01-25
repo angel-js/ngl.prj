@@ -3,16 +3,22 @@
   "dependencies": {
     "angular": "1.*",
     "angular-ui-router": "0.2.*",
-    "lodash": "*"
+    "lodash": "*",
+    "reset.css": "pfraces/reset.css"
   },
   "devDependencies": {
     "gulp": "*",
     "gulp-eslint": "*",
     "gulp-mocha": "*",
+    "gulp-angular-templatecache": "*",
+    "gulp-sourcemaps": "*",
+    "gulp-postcss": "*",
+    "postcss-import": "*",
+    "postcss-nested": "*",
+    "postcss-extend": "*",
+    "webpack-stream": "*",
     "expect.js": "*",
     "del": "*",
-    "webpack-stream": "*",
-    "gulp-angular-templatecache": "*",
     "freddie": "*"
   },
   "scripts": {
