@@ -1,7 +1,7 @@
-ng.prj
-======
+angel.prj
+=========
 
-AngularJS project starter
+angel / angular 1.x project starter
 
 Usage
 -----
@@ -14,14 +14,14 @@ Clone this repo in `~/.scaffold` directory
 
     mkdir ~/.scaffold
     cd ~/.scaffold
-    git clone https://github.com/pfraces/ng.prj
+    git clone https://github.com/angel/angel.prj
 
 Go to the parent directory where you want to create your new project and
 initialize it
 
     cd ~/dev
-    scaffold ng.prj myAngularApp
-    cd myAngularApp
+    scaffold angel.prj myApp
+    cd myApp
     npm install
 
 The project comes with a build system and a default application as an example
@@ -37,10 +37,11 @@ During development, the following tasks are available
   * **test:** run available unit tests under `test/`
   * **build:** generate app files under `dist/`
   * **serve:** launch a server providing the app at `dist/`
+  * **dev:** `build && serve`
 
 Use `npm run <task>` to run the tasks
 
-    npm run build && npm run serve
+    npm run build
 
 Use `--silent` flag for a cleaner log
 
@@ -48,5 +49,5 @@ Use `--silent` flag for a cleaner log
 
 An alias comes handy here
 
-    alias prj='npm run --silent'
-    prj build && prj serve
+    alias task='npm run --silent'
+    task dev
