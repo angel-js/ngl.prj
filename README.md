@@ -1,5 +1,5 @@
-angel.prj
-=========
+ngl.prj
+=======
 
 angel / angular 1.x project starter
 
@@ -14,13 +14,13 @@ Clone this repo in `~/.scaffold` directory
 
     mkdir ~/.scaffold
     cd ~/.scaffold
-    git clone https://github.com/angel/angel.prj
+    git clone https://github.com/angel-js/ngl.prj
 
 Go to the parent directory where you want to create your new project and
 initialize it
 
     cd ~/dev
-    scaffold angel.prj myApp
+    scaffold ngl.prj myApp
     cd myApp
     npm install
 
@@ -49,5 +49,5 @@ Use `--silent` flag for a cleaner log
 
 An alias comes handy here
 
-    alias task='npm run --silent'
-    task dev
+    alias ngl='npm run --silent'
+    ngl dev
