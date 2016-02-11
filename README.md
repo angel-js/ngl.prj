@@ -30,14 +30,12 @@ of code organization
 Tasks
 -----
 
-During development, the following tasks are available
-
-  * **lint:** static analysis of JavaScript sources under `src/` and unit tests
-    under `test/`
-  * **test:** run available unit tests under `test/`
-  * **build:** generate app files under `dist/`
-  * **serve:** launch a server providing the app at `dist/`
-  * **dev:** `build && serve`
+  * **setup:** install all required dependencies
+  * **lint:** static analysis of JavaScript sources and unit tests
+  * **test:** run available unit tests
+  * **build:** generate a `dist/` directory with the compiled app
+  * **server:** launch a server providing the app at `dist/`
+  * **live:** `build` and `server`
 
 Use `npm run <task>` to run the tasks
 
@@ -50,4 +48,4 @@ Use `--silent` flag for a cleaner log
 An alias comes handy here
 
     alias ngl='npm run --silent'
-    ngl dev
+    ngl live

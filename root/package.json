@@ -22,9 +22,11 @@
     "freddie": "*"
   },
   "scripts": {
+    "setup": "npm install",
     "lint": "gulp lint",
     "test": "gulp test",
     "build": "gulp build",
-    "serve": "freddie"
+    "server": "freddie",
+    "live": "npm run build && npm run server"
   }
 }

@@ -14,7 +14,11 @@ var postcss = require('gulp-postcss')([
   require('postcss-extend')
 ]);
 
-gulp.task('lint', function () {
+gulp.task('clean', function () {
+  return del('dist');
+});
+
+gulp.task('lint', ['clean'], function () {
   var src = [
     './src/**/*.js',
     './test/**/*.js'
@@ -31,21 +35,34 @@ gulp.task('test', ['lint'], function () {
     .pipe(mocha());
 });
 
-gulp.task('clean', function () {
-  return del('dist');
-});
-
-gulp.task('index', ['clean'], function () {
+gulp.task('index', ['test'], function () {
   return gulp.src('src/index.html')
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('resources', ['clean'], function () {
+gulp.task('resources', ['test'], function () {
   return gulp.src('resources/**')
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('templates', ['clean'], function () {
+gulp.task('styles', ['test'], function () {
+  return gulp.src('src/styles.css')
+    .pipe(sourcemaps.init())
+    .pipe(postcss)
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('scripts', ['test'], function () {
+  return gulp.src('src/app.js')
+    .pipe(webpack({
+      output: { filename: 'scripts.js' },
+      devtool: 'source-map'
+    }))
+    .pipe(gulp.dest('dist'));
+});
+
+gulp.task('templates', ['test'], function () {
   return gulp.src('src/components/**/*.html')
     .pipe(templateCache('templates.js', {
       module: 'templates',
@@ -54,21 +71,10 @@ gulp.task('templates', ['clean'], function () {
     .pipe(gulp.dest('dist'));
 });
 
-gulp.task('styles', ['clean'], function () {
-  return gulp.src('src/styles.css')
-    .pipe(sourcemaps.init())
-    .pipe(postcss)
-    .pipe(sourcemaps.write('.'))
-    .pipe(gulp.dest('dist'));
-});
-
-gulp.task('scripts', ['test', 'clean'], function () {
-  return gulp.src('src/app.js')
-    .pipe(webpack({
-      output: { filename: 'main.js' },
-      devtool: 'source-map'
-    }))
-    .pipe(gulp.dest('dist'));
-});
-
-gulp.task('build', ['index', 'templates', 'styles', 'scripts']);
+gulp.task('build', [
+  'index',
+  'resources',
+  'styles',
+  'scripts',
+  'templates'
+]);
