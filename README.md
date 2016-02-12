@@ -1,31 +1,61 @@
 ngl.prj
 =======
 
-angel / angular 1.x project starter
+angel / angular 1.x project generator
+
+**Featuring:**
+
+  * `npm scripts`
+  * `gulp`
+  * `eslint`
+  * `npm` modules
 
 Usage
 -----
 
-Install `scaffold`
+### Install `scaffold`
 
     npm -g pfraces/scaffold
-
-Clone this repo in `~/.scaffold` directory
-
     mkdir ~/.scaffold
+
+### Clone **ngl.prj** into `~/.scaffold`
+
     cd ~/.scaffold
     git clone https://github.com/angel-js/ngl.prj
 
-Go to the parent directory where you want to create your new project and
-initialize it
+### Create a new project
 
     cd ~/dev
     scaffold ngl.prj myApp
-    cd myApp
-    npm install
 
-The project comes with a build system and a default application as an example
-of code organization
+**scaffold** will create the project skeleton at `/dev/myApp/` using the
+default configuration
+
+To override the defaults use `scaffold` passing your values through parameters
+
+    scaffold <generator> <prj-name> [<parameters...>]
+
+For example, the previous scaffold command can be replaced with:
+
+    scaffold ngl.prj myApp --description 'Awesome app for making cool stuff'
+
+**ngl.prj** uses the following parameters
+
+  * **name** _(defaults to **<prj-name>**)_
+  * **description** _(defaults to `"Project generated with [scaffold](https://github.com/pfraces/scaffold)"`)_
+  * **version** _(defaults to `0.1.0`)_
+  * **repository** _(defaults to `""`)_
+  * **license** _(defaults to `""`)_
+
+_You can see all the paramaters used and where they are by `grep`ing the `root`
+directory of **ngl.prj**:_
+
+    grep -Rin '{{ [^}].* }}' ~/.scaffold/ngl.prj/root/
+
+### Setup the project
+
+    cd myApp
+    npm run setup
 
 Tasks
 -----
