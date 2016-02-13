@@ -45,7 +45,7 @@ For example, the previous scaffold command can be replaced with:
 **ngl.prj** uses the following parameters
 
   * **name** _(defaults to **<prj-name>**)_
-  * **description** _(defaults to `"Project generated with [scaffold](https://github.com/pfraces/scaffold)"`)_
+  * **description** _(defaults to `"Project generated using [ngl.prj](https://github.com/angel-js/ngl.prj)"`)_
   * **version** _(defaults to `0.1.0`)_
   * **repository** _(defaults to `""`)_
   * **license** _(defaults to `""`)_
