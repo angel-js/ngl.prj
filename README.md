@@ -66,6 +66,7 @@ Tasks
     npm run <task>
 
   * **setup:** install all required dependencies
+  * **upgrade:** update all installed dependencies
   * **lint:** static analysis of JavaScript sources and unit tests
   * **test:** run available unit tests
   * **build:** generate a `dist/` directory with the compiled app

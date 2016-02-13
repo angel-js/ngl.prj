@@ -27,6 +27,7 @@
   },
   "scripts": {
     "setup": "npm install",
+    "upgrade": "npm update",
     "lint": "gulp lint",
     "test": "gulp test",
     "build": "gulp build",
