@@ -73,7 +73,7 @@ Tasks
   * **server:** launch a server providing the app at `dist/`
   * **live:** `build` and `server`
 
-### Tips about `npm scripts`
+**Tip:**
 
 Use `--silent` flag for a cleaner log
 
