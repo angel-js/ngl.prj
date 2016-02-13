@@ -35,11 +35,6 @@ gulp.task('test', ['lint'], function () {
     .pipe(mocha());
 });
 
-gulp.task('index', ['test'], function () {
-  return gulp.src('src/index.html')
-    .pipe(gulp.dest('dist'));
-});
-
 gulp.task('resources', ['test'], function () {
   return gulp.src('resources/**')
     .pipe(gulp.dest('dist'));
@@ -71,10 +66,15 @@ gulp.task('templates', ['test'], function () {
     .pipe(gulp.dest('dist'));
 });
 
+gulp.task('index', ['test'], function () {
+  return gulp.src('src/index.html')
+    .pipe(gulp.dest('dist'));
+});
+
 gulp.task('build', [
-  'index',
   'resources',
   'styles',
   'scripts',
   'templates'
+  'index',
 ]);
