@@ -10,7 +10,7 @@ angel / angular 1.x project generator
   * `eslint`
   * `npm` modules
 
-Usage
+Setup
 -----
 
 ### Install `scaffold`
@@ -22,6 +22,9 @@ Usage
 
     cd ~/.scaffold
     git clone https://github.com/angel-js/ngl.prj
+
+Usage
+-----
 
 ### Create a new project
 
@@ -60,6 +63,8 @@ directory of **ngl.prj**:_
 Tasks
 -----
 
+    npm run <task>
+
   * **setup:** install all required dependencies
   * **lint:** static analysis of JavaScript sources and unit tests
   * **test:** run available unit tests
@@ -67,15 +72,13 @@ Tasks
   * **server:** launch a server providing the app at `dist/`
   * **live:** `build` and `server`
 
-Use `npm run <task>` to run the tasks
-
-    npm run build
+### Tips about `npm scripts`
 
 Use `--silent` flag for a cleaner log
 
     npm run --silent test
 
-An alias comes handy here
+Create an alias using the flag by default
 
     alias ngl='npm run --silent'
     ngl live
