@@ -76,7 +76,7 @@ Tasks
 
 Use `--silent` flag for a cleaner log
 
-    npm run --silent test
+    npm run --silent <task>
 
 Create an alias using the flag by default
 
