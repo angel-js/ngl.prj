@@ -1,5 +1,5 @@
-ngl.prj
-=======
+angel.prj
+=========
 
 angel / angular 1.x project generator
 
